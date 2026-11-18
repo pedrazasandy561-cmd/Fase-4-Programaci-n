@@ -46,4 +46,92 @@ class Servicio(ABC):
     @abstractmethod
     def mostrar_descripcion(self):
         pass
+
+# Reserva de salas
+# Permite calcular el costo dependiendo de las horas en que vaya a utilizar la sala
+
+class Reservasala(Servicio):
+
+    def calcular_costo(self, duracion):
+        if duracion <= 0:
+            raise ErrorServicio("La duración debe ser mayor que cero")
+
+        return duracion * 20000
+
+    def mostrar_descripcion(self):
+        return "Reserva de la sala por horas"
+
+# Alquiler de equipos
+# Permite calcular el costo dependiendo de las horas en que vaya a alquilar el equipo
+
+class AlquilerEquipo(Servicio):
+
+    def calcular_costo(self, duracion):
+        if duracion <= 0:
+            raise ErrorServicio("La duración debe ser mayor que cero")
+
+        return duracion * 15000
+
+    def mostrar_descripcion(self):
+        return "Alquiler de equipos por horas"
+
+# Asesoríasespecializadas
+# Permite calcular el costo dependiendo de las horas en que esten en la asesoría especializada
+
+class Asesoríasespecializadas(Servicio):
+
+    def calcular_costo(self, duracion):
+        if duracion <= 0:
+            raise ErrorServicio("La duración debe ser mayor que cero")
+
+        return duracion * 30000
+
+    def mostrar_descripcion(self):
+        return "Servicio de asesoría especializadas por horas"
+
+# CLASE RESERVA
+# Relaciona al cliente con el servicio
+
+class Reserva:
+
+    def __init__(self, cliente, servicio, duracion):
+        if not isinstance(cliente, Cliente):
+            raise ErrorReserva("El cliente no es válido")
+
+        if not isinstance(servicio, Servicio):
+            raise ErrorReserva("El servicio no es válido")
+
+        if duracion <= 0:
+            raise ErrorReserva("La duración debe ser mayor que cero")
+
+        self.cliente = cliente
+        self.servicio = servicio
+        self.duracion = duracion
+        self.estado = "Pendiente"
+
+    def confirmar(self):
+        self.estado = "Confirmada"
+        return "Reserva confirmada correctamente"
+
+    def cancelar(self):
+        self.estado = "Cancelada"
+        return "Reserva cancelada correctamente"
+
+    def procesar(self):
+        if self.estado != "Confirmada":
+            raise ErrorReserva("Primero debe confirmar la reserva")
+
+        costo = self.servicio.calcular_costo(self.duracion)
+
+        return costo
+
+    def __str__(self):
+        return (
+            f"Cliente: {self.cliente.nombre}\n"
+            f"Servicio: {self.servicio.mostrar_descripcion()}\n"
+            f"Duración: {self.duracion} horas\n"
+            f"Estado: {self.estado}"
+        )
+
+
       
