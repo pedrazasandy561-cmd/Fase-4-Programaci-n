@@ -60,7 +60,7 @@ cliente = Cliente("Adriana Pedraza", "1070986401")
 
 sala = Reservasala()
 equipo = AlquilerEquipo()
-asesoria = Asesoríasespecializadas()
+asesoria = AsesoriasEspecializadas()
 
 
 # INICIO DE LAS PRUEBAS
