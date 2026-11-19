@@ -1,6 +1,6 @@
 # clases.py
 # importaremos las excepciones personalizadas
-from excepciones import Errordatos, Errorservicio, ErrorReserva
+from excepciones import ErrorDatos, ErrorServicio, ErrorReserva
 
 # Clase Entidad
 # Será la clase principal de nuestro codigo
