@@ -19,7 +19,7 @@ import logging
 # Configuramos el registro de errores
 logging.basicConfig(
     filename="logs.txt",
-    level=logging.ERROR,
+    level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
@@ -36,10 +36,12 @@ def esperar_error(tipo_error, funcion):
 
     try:
         funcion()
-        raise AssertionError("No se presentó el error esperado")
 
-    except tipo_error:
-        pass
+    except tipo_error as error:
+        logging.info(f"Error verificado correctamente: {error}")
+
+    else:
+        raise AssertionError("No se presentó ningún error")
 
 
 # Función para ejecutar las 10 pruebas que nos permitirán comprobar la creación de clientes, su información, la reserva, el costo, la cancelación o confirmación de la reserva
@@ -48,10 +50,15 @@ def ejecutar_prueba(numero, descripcion, funcion):
     try:
         funcion()
         print(f"Prueba {numero}: {descripcion} - APROBADA")
+        logging.info(f"Prueba {numero}: {descripcion} - APROBADA")
 
     except Exception as error:
         print(f"Prueba {numero}: {descripcion} - FALLIDA")
         logging.exception(f"Error en la prueba {numero}: {error}")
+        
+    finally:
+        print(f"Finalizó la prueba {numero}")
+        
 
 
 # Creamos un cliente y los servicios
