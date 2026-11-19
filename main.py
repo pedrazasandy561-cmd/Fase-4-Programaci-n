@@ -6,8 +6,7 @@ from clases import (
     Cliente,
     Reserva,
     AlquilerEquipo,
-    Asesoriasespecializadas,
-    Reserva
+    Asesoriasespecializadas
 )
 
 # Importamos las excepciones personalizadas
@@ -58,7 +57,7 @@ def ejecutar_prueba(numero, descripcion, funcion):
 # Creamos un cliente y los servicios
 cliente = Cliente("Adriana Pedraza", "1070986401")
 
-sala = Reserva()
+sala = Reserva(cliente, servicio, duracion)
 equipo = AlquilerEquipo()
 asesoria = AsesoriasEspecializadas()
 
