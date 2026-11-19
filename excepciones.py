@@ -3,12 +3,12 @@
 class ErrorDatos(Exception):
   pass
 
-class Errorservicio(Exception):
+class ErrorServicio(Exception):
   pass
 
-class Errorreserva(Exception):
+class ErrorReserva(Exception):
   pass
 
-class Errorcliente(Exception):
+class ErrorCliente(Exception):
   pass
   
