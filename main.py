@@ -6,7 +6,7 @@ from clases import (
     Cliente,
     ReservaSala,
     AlquilerEquipo,
-    Asesoriasespecializadas
+    AsesoriasEspecializadas
 )
 
 # Importamos las excepciones personalizadas
