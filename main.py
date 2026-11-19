@@ -6,7 +6,7 @@ from clases import (
     Cliente,
     ReservaSala,
     AlquilerEquipo,
-    Asesoriasespecializadas
+    AsesoriasEspecializadas
 )
 
 # Importamos las excepciones personalizadas
@@ -59,7 +59,7 @@ cliente = Cliente("Adriana Pedraza", "1070986401")
 
 sala = ReservaSala()
 equipo = AlquilerEquipo()
-asesoria = Asesoriasespecializadas()
+asesoria = AsesoriasEspecializadas()
 
 
 # INICIO DE LAS PRUEBAS
