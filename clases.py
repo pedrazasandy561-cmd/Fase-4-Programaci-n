@@ -17,7 +17,7 @@ class Entidad(ABC):
 class Cliente(Entidad):
 
     def __init__(self, nombre, documento):
-        if not nombre or not documento:
+        if not nombre.strip() or not documento.strip():
             raise ErrorDatos("El nombre y documento son obligatorios")
 
         self.__nombre = nombre
@@ -34,8 +34,8 @@ class Cliente(Entidad):
     def documento(self):
         return self.__documento
 
-  # Clase servicio
-  # Se encargará de definir los diferentes servicios que se ofrecen
+# Clase servicio
+# Se encargará de definir los diferentes servicios que se ofrecen
 
 class Servicio(ABC):
 
@@ -104,33 +104,33 @@ class Reserva:
         if duracion <= 0:
             raise ErrorReserva("La duración debe ser mayor que cero")
 
-        self.cliente = cliente
-        self.servicio = servicio
-        self.duracion = duracion
-        self.estado = "Pendiente"
+        self._cliente = cliente
+        self._servicio = servicio
+        self._duracion = duracion
+        self._estado = "Pendiente"
 
     def confirmar(self):
-        self.estado = "Confirmada"
+        self._estado = "Confirmada"
         return "Reserva confirmada correctamente"
 
     def cancelar(self):
-        self.estado = "Cancelada"
+        self._estado = "Cancelada"
         return "Reserva cancelada correctamente"
 
     def procesar(self):
-        if self.estado != "Confirmada":
+        if self._estado != "Confirmada":
             raise ErrorReserva("Primero debe confirmar la reserva")
 
-        costo = self.servicio.calcular_costo(self.duracion)
+        costo = self._servicio.calcular_costo(self._duracion)
 
         return costo
 
     def __str__(self):
         return (
-            f"Cliente: {self.cliente.nombre}\n"
-            f"Servicio: {self.servicio.mostrar_descripcion()}\n"
-            f"Duración: {self.duracion} horas\n"
-            f"Estado: {self.estado}"
+            f"Cliente: {self._cliente.nombre}\n"
+            f"Servicio: {self._servicio.mostrar_descripcion()}\n"
+            f"Duración: {self._duracion} horas\n"
+            f"Estado: {self._estado}"
         )
 
 
