@@ -4,14 +4,14 @@
 # Importamos las clases que creamos en clases.py
 from clases import (
     Cliente,
-    Reservasala,
+    Reserva,
     AlquilerEquipo,
     Asesoriasespecializadas,
     Reserva
 )
 
 # Importamos las excepciones personalizadas
-from excepciones import ErrorDatos, ErrorReserva
+from excepciones import ErrorDatos, ErrorReserva, ErrorUsuario
 
 # Importamos logging para guardar los errores
 import logging
@@ -58,7 +58,7 @@ def ejecutar_prueba(numero, descripcion, funcion):
 # Creamos un cliente y los servicios
 cliente = Cliente("Adriana Pedraza", "1070986401")
 
-sala = Reservasala()
+sala = Reserva()
 equipo = AlquilerEquipo()
 asesoria = AsesoriasEspecializadas()
 
