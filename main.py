@@ -11,7 +11,7 @@ from clases import (
 )
 
 # Importamos las excepciones personalizadas
-from excepciones import ErrorDatos, ErrorReserva, ErrorUsuario
+from excepciones import ErrorDatos, ErrorReserva, ErrorCliente
 
 # Importamos logging para guardar los errores
 import logging
