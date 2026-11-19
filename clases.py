@@ -78,7 +78,7 @@ class AlquilerEquipo(Servicio):
 # Asesoríasespecializadas
 # Permite calcular el costo dependiendo de las horas en que esten en la asesoría especializada
 
-class Asesoriasespecializadas(Servicio):
+class AsesoriasEspecializadas(Servicio):
 
     def calcular_costo(self, duracion):
         if duracion <= 0:
