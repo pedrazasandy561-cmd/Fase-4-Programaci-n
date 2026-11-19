@@ -4,7 +4,7 @@
 # Importamos las clases que creamos en clases.py
 from clases import (
     Cliente,
-    Reserva,
+    ReservaSala,
     AlquilerEquipo,
     Asesoriasespecializadas
 )
@@ -57,7 +57,7 @@ def ejecutar_prueba(numero, descripcion, funcion):
 # Creamos un cliente y los servicios
 cliente = Cliente("Adriana Pedraza", "1070986401")
 
-sala = Reserva(cliente, servicio, duracion)
+sala = ReservaSala()
 equipo = AlquilerEquipo()
 asesoria = AsesoriasEspecializadas()
 
