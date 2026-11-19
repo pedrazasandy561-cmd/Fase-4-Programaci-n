@@ -50,7 +50,7 @@ class Servicio(ABC):
 # Reserva de salas
 # Permite calcular el costo dependiendo de las horas en que vaya a utilizar la sala
 
-class Reservasala(Servicio):
+class Reserva(Servicio):
 
     def calcular_costo(self, duracion):
         if duracion <= 0:
@@ -59,7 +59,7 @@ class Reservasala(Servicio):
         return duracion * 20000
 
     def mostrar_descripcion(self):
-        return "Reserva de la sala por horas"
+        return "Reserva por horas"
 
 # Alquiler de equipos
 # Permite calcular el costo dependiendo de las horas en que vaya a alquilar el equipo
